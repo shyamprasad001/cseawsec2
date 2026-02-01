@@ -53,7 +53,7 @@ app.post("/login", async (req, res) => {
   try {
     const { user, pass } = req.body;
     const dbUser = await loginModel.findOne({ user });
-    if (!userOne) {
+    if (!dbUser) {
       return res.status(404).send("user not found");
     }
 
