@@ -11,6 +11,8 @@ app.use(express.static("public"));
 
 const connectDB = async () => {
   try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("ATLAS Connected");
   } catch (err) {
     console.error("ATLAS Connecntion failed", err);
     process.exit(1);
